@@ -200,6 +200,7 @@ body {
     padding: 1.4rem 0;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
 
 }
 .menu-kami{
