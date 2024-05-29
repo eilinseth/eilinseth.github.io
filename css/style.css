@@ -16,7 +16,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg);
   color: #fff;
-  /* min-height: 2000px; */
+  min-height: 3000px;
 }
 
 /* Navbar */
@@ -141,6 +141,89 @@ body {
 
 }
 
+/* Tentang Kami */
+.tentang-kami h1,
+.menu h1{
+    padding:7.5rem 7% 1rem;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.tentang-kami h1 span,
+.menu h1 span{
+    color: var(--primary);
+}
+.tentang-kami .row{
+    display: flex;
+    padding:1.4rem 7%;
+}
+.tentang-kami .row .forimg{
+    flex:1 1 45rem;
+}
+.tentang-kami .row .forimg img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.tentang-kami .row .content{
+    flex:1 1 30%;
+    padding-left: 1%;
+    /* margin-top: -0.5%; */
+}
+
+.tentang-kami .row .content h3{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.tentang-kami .row .content p{
+    font-weight: 100;
+    font-size: 1.2rem;
+}
+
+
+
+.menu  h1{
+    margin-bottom: -0.7rem;
+    padding:1.4rem 7% 1rem;
+}
+
+.menu  p{
+    text-align: center;
+    margin:auto;
+    max-width: 30rem;
+    font-weight: 100;
+}
+.menu .row{
+    display: flex;
+    padding: 1.4rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.menu-kami{
+    padding: 1.4rem 3%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu-kami img{
+    border-radius: 50%;
+    object-position: center;
+}
+.menu-title .title-kopi{
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.menu-title .menu-price{
+    font-size: 1rem;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+
 /* responsif */
 /* Laptop */
 @media (max-width: 1366px) {
@@ -184,6 +267,10 @@ body {
   .navbar .navbar-nav.active {
     right: 0;
   }
+  .tentang-kami .row{
+    flex-wrap: wrap;
+  }
+
 }
 /* Mobile phone */
 @media (max-width: 450px) {
@@ -193,5 +280,8 @@ body {
 
   #hamburger-menu {
     display: inline-block;
+  }
+  .menu .row .menu-kami img{
+    height: 50%;
   }
 }
