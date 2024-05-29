@@ -71,6 +71,7 @@ body {
 
 .navbar .navbar-extra a {
   color: white;
+  /* pointer-events: none; */
   margin: 0 0.5rem;
 }
 
