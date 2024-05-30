@@ -16,7 +16,6 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg);
   color: #fff;
-  min-height: 5000px;
 }
 
 /* Navbar */
@@ -285,6 +284,41 @@ body {
   
   
 }
+
+.footer{
+  padding:1rem 0;
+  margin-top:3rem;
+  text-align: center;
+  background-color: var(--primary);
+}
+
+.footer .socials,
+.footer .links{
+  padding:1rem 0;
+}
+
+.footer .socials a,
+.footer .links a{
+  color:white;
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  
+}
+
+.footer .socials a:hover,
+.footer .links a:hover{
+  color: var(--bg);
+}
+
+.credit a{
+  font-weight: 700;
+  color: var(--bg);
+}
+
+.menu p{
+  font-size: 1.2rem;
+}
+
 
 
 /* responsif */
