@@ -16,7 +16,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg);
   color: #fff;
-  min-height: 3000px;
+  min-height: 5000px;
 }
 
 /* Navbar */
@@ -144,14 +144,16 @@ body {
 
 /* Tentang Kami */
 .tentang-kami h1,
-.menu h1{
+.menu h1,
+.contact h1{
     padding:7.5rem 7% 1rem;
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2rem;
 }
 .tentang-kami h1 span,
-.menu h1 span{
+.menu h1 span,
+.contact h1 span{
     color: var(--primary);
 }
 .tentang-kami .row{
@@ -185,12 +187,14 @@ body {
 
 
 
-.menu  h1{
+.menu  h1,
+.contact h1{
     margin-bottom: -0.7rem;
-    padding:1.4rem 7% 1rem;
+    padding:7rem 7% 1rem;
 }
 
-.menu  p{
+.menu  p,
+.contact p{
     text-align: center;
     margin:auto;
     max-width: 30rem;
@@ -223,6 +227,63 @@ body {
     font-size: 1rem;
     font-weight: 300;
     font-size: 1.2rem;
+}
+
+/* Kontak */
+.contact .row {
+  display: flex;
+  align-items: center;
+  padding:1.4rem 7%;
+  margin-top: 2rem;
+  
+}
+
+.contact .row .map{
+  flex:1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+  height: 30rem;
+
+}
+.contact .row form{
+  flex: 1 1 45rem;
+  width: 100%;
+  padding:2rem 5rem;
+  height: 30rem;
+  background-color: #5e5b5b88;
+  padding-top: 2rem;
+  text-align: center;
+  
+}
+
+.contact .row .input-group{
+  display: flex;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  align-items: center;
+  padding-left: 1.5rem;
+  margin-top:1.5rem;
+  
+}
+
+.contact .row .input-group input{
+  width: 100%;
+  background: none;
+  color:white;
+  padding:1.5rem 2rem;
+  font-size: 1.6rem;
+}
+
+.contact .row .btn{
+  color:white;
+  padding: 1rem 4rem;
+  background-color: var(--primary);
+  margin-top:1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: inline-block;
+  
+  
 }
 
 
@@ -271,6 +332,12 @@ body {
   }
   .tentang-kami .row{
     flex-wrap: wrap;
+  }
+  .contact .row{
+    flex-wrap: wrap;
+  }
+  .contact .row form{
+    padding-top: 0;
   }
 
 }
