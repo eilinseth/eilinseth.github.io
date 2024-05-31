@@ -410,6 +410,12 @@ body {
     padding-top: 0;
   }
 
+  .search-form {
+    width: 80%;
+    /* left:2rem; */
+  }
+ 
+
 }
 /* Mobile phone */
 @media (max-width: 450px) {
