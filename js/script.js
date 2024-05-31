@@ -15,6 +15,13 @@ searchBtn.addEventListener('click',function(e){
     e.preventDefault();
 })
 
+const shopCart = document.querySelector('#shopping-cart');
+const shopItem = document.querySelector('.shopping-cart');
+
+shopCart.addEventListener('click',function(){
+    shopItem.classList.toggle('active');
+})
+
 document.addEventListener('click',function(event){
     
     if(!hamburger.contains(event.target) && !navbar.contains(event.target)){
@@ -23,6 +30,10 @@ document.addEventListener('click',function(event){
     if(!searchForm.contains(event.target) && !searchBtn.contains(event.target)){
         searchForm.classList.remove('active');
     };
+    if(!shopCart.contains(event.target) && !shopItem.contains(event.target)){
+        shopItem.classList.remove('active');
+    };
+    
     
     
 })

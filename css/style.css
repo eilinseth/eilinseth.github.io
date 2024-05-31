@@ -118,6 +118,57 @@ body {
   transform: scaleY(1);
 }
 
+.navbar .shopping-cart{
+  position: absolute;
+  top:100%;
+  right: -100%;
+  height: 100vh;
+  background-color: #fff;
+  width: 30rem;
+  transition: 0.4s;
+  /* display: flex; */
+}
+
+.shopping-cart.active{
+  right:0;
+}
+
+.shopping-cart .cart-item{
+  display: flex;
+  color:var(--bg);
+  /* justify-content: center; */
+  border-bottom: 1px solid var(--bg);
+  align-items: center;
+  position: relative;
+  
+}
+
+.navbar .shopping-cart .cart-item img{
+  height: 6rem;
+  border-radius: 50%;
+  margin: 1rem 1rem;
+}
+
+.cart-item .item-detail{
+  padding:0 1rem;
+}
+.cart-item .harga-produk{
+  display: block;
+  margin-top:1rem;
+}
+
+.cart-item a .trash{
+  position: absolute;
+  right:5%;
+  top:45%;
+  /* font-size: 3rem; */
+  transform: scale(1.2);
+  color:var(--bg)
+}
+.cart-item a .trash:hover{
+  color:var(--primary)
+}
+
 /* Hero */
 
 .hero {
@@ -303,6 +354,7 @@ body {
   height: 4rem;
   width: 4rem;
   display: flex;
+  margin:0.3rem;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
@@ -324,7 +376,7 @@ body {
 }
 
 .row .product-item .product-img{
-  width: 100%;
+  padding: 1rem 0;
   height: auto;
   border: 1px solid white;
   margin-bottom: 1rem;
@@ -526,6 +578,25 @@ body {
   .product-content .product-price h3{
     font-size: 1.6rem;
     /* display: block; */
+  }
+
+  .navbar .shopping-cart .cart-item img{
+    height: 8rem;
+    border-radius: 50%;
+    margin: 1rem 1rem;
+  }
+  
+  .cart-item .item-detail{
+    font-size: 1.4rem;
+  }
+  .cart-item .harga-produk{
+    display: block;
+    margin-top:1rem;
+  }
+
+  .cart-item a .trash{
+    transform: scale(1);
+    right: 3%;
   }
   
   
