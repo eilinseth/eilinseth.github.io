@@ -222,7 +222,7 @@ body {
     font-size: 1.2rem;
 }
 
-
+/* Menu */
 
 .menu  h1,
 .contact h1,
@@ -237,7 +237,8 @@ body {
     text-align: center;
     margin:auto;
     max-width: 30rem;
-    font-weight: 100;
+    font-weight: 200;
+    font-size: 1.1rem;
 }
 .menu .row{
     display: flex;
@@ -266,6 +267,92 @@ body {
     font-size: 1rem;
     font-weight: 300;
     font-size: 1.2rem;
+}
+
+/* Product */
+.products{
+  padding: 1.4rem 7%;
+}
+
+
+.products .row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  /* border: 1px solid var(--primary); */
+  padding:0 7%;
+  text-align: center;
+  gap:2rem;
+  flex-wrap: wrap;
+  
+}
+
+.products .row .product-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 1px solid var(--primary);
+  padding:2rem 2rem;
+
+}
+
+.products .row .product-icons{
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.products .row .product-icons a{
+  padding:1.7rem 2rem;
+  margin-right: 5px;
+  color:white;
+  border-radius: 50%;
+  
+  
+}
+.products .row .product-icons a:hover{
+  cursor: pointer;
+  background-color: var(--primary);
+  border: 1px solid white;
+
+}
+
+.row .product-item .product-img{
+  width: 100%;
+  height: auto;
+  border: 1px solid white;
+  margin-bottom: 1rem;
+}
+.row .product-item .product-img img{
+  width: 100%;
+}
+
+.row .product-item .product-content .product-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-content .product-star{
+  color:var(--primary);
+  margin-bottom: 0.7rem;
+  
+}
+
+.product-content .product-star .starfull{
+  /* background-color: var(--primary); */
+  fill: var(--primary);
+}
+
+.product-content .product-price span{
+  text-decoration: line-through;
+  font-weight: 300;
+  display: block;
 }
 
 /* Kontak */
@@ -415,9 +502,33 @@ body {
   }
 
  .navbar .search-form {
-    width: 80%;
+    width: 70%;
     right:4rem;
   }
+
+  .row .product-item .product-img{
+    width: 80%;
+    border: 1px solid white;
+    margin-bottom: 1rem;
+  }
+
+  .row .product-item .product-content .product-title{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  
+  .product-content .product-star .starfull{
+    /* background-color: var(--primary); */
+    fill: var(--primary);
+  }
+
+  .product-content .product-price h3{
+    font-size: 1.6rem;
+    /* display: block; */
+  }
+  
+  
  
 
 }
