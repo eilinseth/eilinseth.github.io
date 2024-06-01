@@ -37,3 +37,27 @@ document.addEventListener('click',function(event){
     
     
 })
+
+
+const detailProduk = document.querySelectorAll('.detail-produk');
+const modalBox = document.querySelector('.modal-box');
+
+detailProduk.forEach(btn =>{
+    btn.addEventListener('click',function(e){
+        modalBox.style.display='flex';
+        e.preventDefault();
+    })
+})
+
+const closeIcon=document.querySelector('.close-icon');
+
+closeIcon.addEventListener('click',function(){
+    modalBox.style.display="none";
+})
+
+window.addEventListener('click',function(e){
+    if(e.target===modalBox){
+        modalBox.style.display="none";
+    }
+
+})
