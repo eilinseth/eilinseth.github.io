@@ -59,39 +59,43 @@
       </div>
 
       <!-- shopping cart start -->
-      <div class="shopping-cart">
-        <div class="cart-item">
-          <img src="img/product/1.jpg" alt="" />
+      <div class="shopping-cart" >
+        
+        <template x-for="(item,index) in $store.cart.items" :key="index">
+          <div class="cart-item">
+          <img :src="`img/product/${item.img}`" :alt="item.name" />
           <div class="item-detail">
-            <h3 class="nama-produk">Roasted Coffee Beans</h3>
-            <h3 class="harga-produk">Rp.30000</h3>
+            <h3 class="nama-produk" x-text="item.name">Roasted Coffee Beans</h3>
+            <h3 class="harga-produk" x-text="rupiah(item.price)">Rp.30000 </h3>&times;
+            <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+            <span x-text="item.quantity">1</span>
+            <button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
+            <span id="total" x-text="rupiah(item.total)">Rp.30000</span>
           </div>
-          <a href=""><i data-feather="trash-2" class="trash"></i></a></i>
         </div>
-        <div class="cart-item">
-          <img src="img/product/1.jpg" alt="" />
-          <div class="item-detail">
-            <h3 class="nama-produk">Roasted Coffee Beans</h3>
-            <h3 class="harga-produk">Rp.30000</h3>
-          </div>
-          <a href=""><i data-feather="trash-2" class="trash"></i></a></i>
+        </template>
+
+        <h5 x-show="!$store.cart.items.length">Cart is empty </h5>
+        <h5 x-show="$store.cart.items.length">Total = <span x-text="rupiah($store.cart.total)"></span> </h5>
+        <div class="form-container" x-show="$store.cart.items.length">
+          <h5>Customer Detail</h5>
+          <form action="" id="form-checkout">
+            <label for="nama">
+              <span>Nama : </span>
+              <input type="text" name="nama">
+            </label>
+            <label for="email">
+              <span>Email : </span>
+              <input type="text" name="email">
+            </label>
+            <label for="nomor">
+              <span>Nomor : </span>
+              <input type="text" name="nomor" autocomplete="off">
+            </label>
+            <button type="submit" class="formBtnCust">Order</button>
+          </form>
         </div>
-        <div class="cart-item">
-          <img src="img/product/1.jpg" alt="" />
-          <div class="item-detail">
-            <h3 class="nama-produk">Roasted Coffee Beans</h3>
-            <h3 class="harga-produk">Rp.30000</h3>
-          </div>
-          <a href=""><i data-feather="trash-2" class="trash"></i></a></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/product/1.jpg" alt="" />
-          <div class="item-detail">
-            <h3 class="nama-produk">Roasted Coffee Beans</h3>
-            <h3 class="harga-produk">Rp.30000</h3>
-          </div>
-          <a href=""><i data-feather="trash-2" class="trash"></i></a></i>
-        </div>
+        
       </div>
     </nav>
 
@@ -210,10 +214,10 @@
         cupiditate perferendis dolores, aliquam suscipit labore.
       </p>
       <div class="row" >
-        <template x-for="(item,index) in items" :key='item.id' >
+        <template x-for="(item,index) in items" :key='index' >
         <div class="product-item">
           <div class="product-icons">
-            <a href="" @click.prevent="$store.cart.add(item)">
+            <a href="" @click.prevent="$store.cart.add(item)" >
               <svg
                 width="24"
                 height="24"
@@ -309,17 +313,17 @@
 
     <!-- Modal detail produk start -->
     <!-- <div x-data="products"> -->
-      <div class="modal-box" x-show="open" x-data="products">
+      <div class="modal-box" x-show="open" x-data>
         
         <div class="modal-container">
           <a href="javascript:;" class="close-icon"><i data-feather="x"></i></a>
-          
-          <div class="modal-detail">
+          <div class="modal-detail" >
+            <template x-for="(item,index) in $store.cart.items" :key="index">
             <div class="modal-img">
-              <img src="img/product/1.jpg" alt="">
+              <img :src="`img/product/${item.img}`" alt="item.name">
             </div>
             <div class="product-content">
-                <h3 class="product-title" >Roasted Coffee Beans</h3>
+                <h3 class="product-title" x-text="item.name">Roasted Coffee Beans</h3>
               <div class="product-star">
                 <i data-feather="star" class="starfull"></i>
                 <i data-feather="star" class="starfull"></i>
@@ -328,17 +332,18 @@
                 <i data-feather="star"></i>
               </div>
               <div class="product-price">
-                <h3 >IDR 30K</h3>
+                <h3 x-text="item.price">IDR 30K</h3>
               </div>
               <a href="javascript:;" class="modal-cart"><i data-feather="shopping-cart"></i><span> Add to Cart</span></a>
             </div>
             <div class="description">
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique nemo obcaecati fuga voluptas, ab ad maxime aut iste neque qui quas cumque inventore sit pariatur maiores temporibus soluta consequuntur a?</p>
             </div>
+          </template>
+          </div>
         </div>
-      </div>
     </div>
-  </template>
+ 
 
     <!-- Modal detail produk end -->
 
@@ -372,6 +377,7 @@
     <!-- My Js -->
     <script src="js/script.js"></script>
     <script src="js/app.js"></script>
+
 
   </body>
 </html>
