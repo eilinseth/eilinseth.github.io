@@ -49,11 +49,6 @@ detailProduk.forEach(btn =>{
     })
 })
 
-const closeIcon=document.querySelector('.close-icon');
-
-closeIcon.addEventListener('click',function(){
-    modalBox.style.display="none";
-})
 
 window.addEventListener('click',function(e){
     if(e.target===modalBox){

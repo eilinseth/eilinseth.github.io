@@ -213,7 +213,7 @@
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
         cupiditate perferendis dolores, aliquam suscipit labore.
       </p>
-      <div class="row" >
+      <div class="row"  >
         <template x-for="(item,index) in items" :key='index' >
         <div class="product-item">
           <div class="product-icons">
@@ -230,7 +230,7 @@
                 <use href="img/feather-sprite.svg#shopping-cart" />
               </svg>
             </a>
-            <a href="javascript:;" class="detail-produk" @click="open = !open">
+            <a href="javascript:;" class="detail-produk" @click="open = !open" x-data="item">
               <svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
                 stroke-linejoin="round">
                 <use href="img/feather-sprite.svg#eye" />
@@ -269,7 +269,10 @@
             </div>
           </div>
         </div>
+
+      
       </template>
+      
       </div>
     </section>
     <!-- Product end -->
@@ -312,13 +315,17 @@
     <!-- Kontak End-->
 
     <!-- Modal detail produk start -->
+
     <!-- <div x-data="products"> -->
-      <div class="modal-box" x-show="open" x-data>
+      <div class="modal-box" x-show="open" >
         
         <div class="modal-container">
-          <a href="javascript:;" class="close-icon"><i data-feather="x"></i></a>
+          <a href="javascript:;" class="close-icon"><svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="img/feather-sprite.svg#x" />
+          </svg>
+        </a>
           <div class="modal-detail" >
-            <template x-for="(item,index) in $store.cart.items" :key="index">
             <div class="modal-img">
               <img :src="`img/product/${item.img}`" alt="item.name">
             </div>
@@ -339,11 +346,11 @@
             <div class="description">
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique nemo obcaecati fuga voluptas, ab ad maxime aut iste neque qui quas cumque inventore sit pariatur maiores temporibus soluta consequuntur a?</p>
             </div>
-          </template>
           </div>
         </div>
     </div>
  
+    
 
     <!-- Modal detail produk end -->
 
