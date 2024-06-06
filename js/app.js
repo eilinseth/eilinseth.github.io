@@ -76,7 +76,7 @@ document.addEventListener("alpine:init", () => {
         }else{
            this.items = this.items.filter (detail => detail.id == item.id)
         }
-        
+         
     }
   });
 
