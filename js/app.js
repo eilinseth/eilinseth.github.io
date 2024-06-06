@@ -1,11 +1,11 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     items: [
-      { id: 1, name: "Arabica Blend", price: 25000, img: "1.jpg" ,deskripsi:"Arabica"},
-      { id: 2, name: "Robusta Brazil", price: 30000, img: "2.jpg",deskripsi:"Robusta" },
-      { id: 3, name: "Aceh Gayo", price: 20000, img: "3.jpg" ,deskripsi:"Aceh Gayo"},
-      { id: 4, name: "Primo Passo", price: 30000, img: "4.jpg",deskripsi:"Primo" },
-      { id: 5, name: "Sumatra Handheling", price: 40000, img: "5.jpg" ,deskripsi:"Sumatra"},
+      { id: 1, name: "Arabica Blend", price: 25000, img: "1.jpg" ,deskripsi:"Arabica Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit, iste."},
+      { id: 2, name: "Robusta Brazil", price: 30000, img: "2.jpg",deskripsi:"Robusta Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni enim ab, reiciendis quis repudiandae dolor?" },
+      { id: 3, name: "Aceh Gayo", price: 20000, img: "3.jpg" ,deskripsi:"Aceh Gayo Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet modi inventore magni iure voluptates aspernatur?"},
+      { id: 4, name: "Primo Passo", price: 30000, img: "4.jpg",deskripsi:"Primo Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, deleniti in debitis nihil a dolorum!" },
+      { id: 5, name: "Sumatra Handheling", price: 40000, img: "5.jpg" ,deskripsi:"Sumatra Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, totam ab reiciendis dolore quos sit."},
     ],
   }));
 
