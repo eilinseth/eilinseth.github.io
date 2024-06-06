@@ -1,11 +1,11 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     items: [
-      { id: 1, name: "Arabica Blend", price: 25000, img: "1.jpg" },
-      { id: 2, name: "Robusta Brazil", price: 30000, img: "2.jpg" },
-      { id: 3, name: "Aceh Gayo", price: 20000, img: "3.jpg" },
-      { id: 4, name: "Primo Passo", price: 30000, img: "4.jpg" },
-      { id: 5, name: "Sumatra Handheling", price: 40000, img: "5.jpg" },
+      { id: 1, name: "Arabica Blend", price: 25000, img: "1.jpg" ,deskripsi:"Arabica"},
+      { id: 2, name: "Robusta Brazil", price: 30000, img: "2.jpg",deskripsi:"Robusta" },
+      { id: 3, name: "Aceh Gayo", price: 20000, img: "3.jpg" ,deskripsi:"Aceh Gayo"},
+      { id: 4, name: "Primo Passo", price: 30000, img: "4.jpg",deskripsi:"Primo" },
+      { id: 5, name: "Sumatra Handheling", price: 40000, img: "5.jpg" ,deskripsi:"Sumatra"},
     ],
   }));
 
@@ -68,8 +68,21 @@ document.addEventListener("alpine:init", () => {
         this.total -= cartItem.price;
       }
     },
+    detail(item){
+        detailItem = this.items.find(detail => detail.id === item.id);
+
+        if(!detailItem){
+            this.items.push({ ...item});
+        }else{
+           this.items = this.items.filter (detail => detail.id == item.id)
+        }
+        
+    }
   });
+
+
 });
+
 
 function rupiah(number) {
   return new Intl.NumberFormat("id-ID", {
@@ -78,3 +91,4 @@ function rupiah(number) {
     minimumFractionDigits: 0,
   }).format(number);
 }
+
