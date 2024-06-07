@@ -327,7 +327,7 @@
       <div class="modal-box" x-show="open;" @click.outside="open = false" x-data>
         <template x-for="(item,index) in $store.products.items" :key="index">
       <div class="modal-container">
-        <a href="javascript:;" class="close-icon"><svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
+        <a href="#" @click.prevent="open=false" class="close-icon"><svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
           stroke-linejoin="round">
           <use href="img/feather-sprite.svg#x" />
         </svg>
@@ -345,7 +345,7 @@
               <i data-feather="star" class="starfull"></i>
               <i data-feather="star"></i>
             </div>
-            <div class="product-price" x-text="item.price">
+            <div class="product-price" x-text="rupiah(item.price)">
               <h3 >IDR 30K</h3>
             </div>
             <a href="javascript:;" class="modal-cart" @click="$store.cart.add(item)"><i data-feather="shopping-cart"></i><span> Add to Cart</span></a>

@@ -109,7 +109,7 @@ document.addEventListener("alpine:init", () => {
     detail(newItem) {
          //cek array 
          
-         //buat agar mengembalikan 1 elemen cocokan dengan id 
+         //buat agar mengembalikan 1 elemen 
          this.items.splice(0,10,newItem);
          console.log(this.items)
         //  return produk;
