@@ -105,22 +105,18 @@ document.addEventListener("alpine:init", () => {
   });
 
   Alpine.store("products", {
-    items: [],
+    items: [  ],
     detail(newItem) {
          //cek array 
          
          //buat agar mengembalikan 1 elemen cocokan dengan id 
-         const produk = this.items.find(produk => produk.id === newItem.id);
-         
-         if(!produk){
-            this.items.push(newItem);
-         }else{
-            //jika barang sudah ada , cocokan dengan id 
-            
-            this.items = this.items.filter(item => item.id === newItem.id)
-         }
+         this.items.splice(0,10,newItem);
          console.log(this.items)
-    },
+        //  return produk;
+        
+         
+         
+}
   });
 });
 
