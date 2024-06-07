@@ -348,7 +348,7 @@
             <div class="product-price" x-text="item.price">
               <h3 >IDR 30K</h3>
             </div>
-            <a href="javascript:;" class="modal-cart"><i data-feather="shopping-cart"></i><span> Add to Cart</span></a>
+            <a href="javascript:;" class="modal-cart" @click="$store.cart.add(item)"><i data-feather="shopping-cart"></i><span> Add to Cart</span></a>
           </div>
           <div class="description" x-text="item.deskripsi">
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique nemo obcaecati fuga voluptas, ab ad maxime aut iste neque qui quas cumque inventore sit pariatur maiores temporibus soluta consequuntur a?</p>
