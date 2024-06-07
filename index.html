@@ -232,7 +232,7 @@
                 <use href="img/feather-sprite.svg#shopping-cart" />
               </svg>
             </a>
-            <a href="javascript:;" class="detail-produk" @click="open = !open;$store.cart.detail(item)" >
+            <a href="javascript:;" class="detail-produk" @click="open = !open;$store.products.detail(item)" >
               <svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
                 stroke-linejoin="round">
                 <use href="img/feather-sprite.svg#eye" />
@@ -324,8 +324,8 @@
     <!-- Modal detail produk start -->
 
     <!-- <div x-data="products"> -->
-      <div class="modal-box" x-show="open;" @click.outside="open = false"  >
-        <template x-for="(item,index) in $store.cart.items" :key="index">
+      <div class="modal-box" x-show="open;" @click.outside="open = false" x-data>
+        <template x-for="(item,index) in $store.products.items" :key="index">
       <div class="modal-container">
         <a href="javascript:;" class="close-icon"><svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
           stroke-linejoin="round">

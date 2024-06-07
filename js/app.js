@@ -1,12 +1,48 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     items: [
-      { id: 1, name: "Arabica Blend", price: 25000, img: "1.jpg" ,deskripsi:"Arabica Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit, iste."},
-      { id: 2, name: "Robusta Brazil", price: 30000, img: "2.jpg",deskripsi:"Robusta Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni enim ab, reiciendis quis repudiandae dolor?" },
-      { id: 3, name: "Aceh Gayo", price: 20000, img: "3.jpg" ,deskripsi:"Aceh Gayo Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet modi inventore magni iure voluptates aspernatur?"},
-      { id: 4, name: "Primo Passo", price: 30000, img: "4.jpg",deskripsi:"Primo Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, deleniti in debitis nihil a dolorum!" },
-      { id: 5, name: "Sumatra Handheling", price: 40000, img: "5.jpg" ,deskripsi:"Sumatra Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, totam ab reiciendis dolore quos sit."},
+      {
+        id: 1,
+        name: "Arabica Blend",
+        price: 25000,
+        img: "1.jpg",
+        deskripsi:
+          "Arabica Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit, iste.",
+      },
+      {
+        id: 2,
+        name: "Robusta Brazil",
+        price: 30000,
+        img: "2.jpg",
+        deskripsi:
+          "Robusta Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni enim ab, reiciendis quis repudiandae dolor?",
+      },
+      {
+        id: 3,
+        name: "Aceh Gayo",
+        price: 20000,
+        img: "3.jpg",
+        deskripsi:
+          "Aceh Gayo Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet modi inventore magni iure voluptates aspernatur?",
+      },
+      {
+        id: 4,
+        name: "Primo Passo",
+        price: 30000,
+        img: "4.jpg",
+        deskripsi:
+          "Primo Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, deleniti in debitis nihil a dolorum!",
+      },
+      {
+        id: 5,
+        name: "Sumatra Handheling",
+        price: 40000,
+        img: "5.jpg",
+        deskripsi:
+          "Sumatra Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, totam ab reiciendis dolore quos sit.",
+      },
     ],
+    
   }));
 
   Alpine.store("cart", {
@@ -43,8 +79,7 @@ document.addEventListener("alpine:init", () => {
     },
     //cek berdasar id
     remove(id) {
-
-     cartItem = this.items.find(item => item.id === id);
+      cartItem = this.items.find((item) => item.id === id);
 
       if (cartItem.quantity > 1) {
         this.items = this.items.map((item) => {
@@ -61,28 +96,33 @@ document.addEventListener("alpine:init", () => {
             return item;
           }
         });
-      }else if(cartItem.quantity == 1 ){
-        
-        this.items=this.items.filter(item => item.id !== cartItem.id);
+      } else if (cartItem.quantity == 1) {
+        this.items = this.items.filter((item) => item.id !== cartItem.id);
         this.quantity--;
         this.total -= cartItem.price;
       }
     },
-    detail(item){
-        detailItem = this.items.find(detail => detail.id === item.id);
-
-        if(!detailItem){
-            this.items.push({ ...item});
-        }else{
-           this.items = this.items.filter (detail => detail.id == item.id)
-        }
-         
-    }
   });
 
-
+  Alpine.store("products", {
+    items: [],
+    detail(newItem) {
+         //cek array 
+         
+         //buat agar mengembalikan 1 elemen cocokan dengan id 
+         const produk = this.items.find(produk => produk.id === newItem.id);
+         
+         if(!produk){
+            this.items.push(newItem);
+         }else{
+            //jika barang sudah ada , cocokan dengan id 
+            
+            this.items = this.items.filter(item => item.id === newItem.id)
+         }
+         console.log(this.items)
+    },
+  });
 });
-
 
 function rupiah(number) {
   return new Intl.NumberFormat("id-ID", {
@@ -91,4 +131,3 @@ function rupiah(number) {
     minimumFractionDigits: 0,
   }).format(number);
 }
-
