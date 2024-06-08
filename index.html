@@ -324,9 +324,9 @@
     <!-- Modal detail produk start -->
 
     <!-- <div x-data="products"> -->
-      <div class="modal-box" x-show="open;" @click.outside="open = false" x-data>
+      <div class="modal-box" x-show="open;"  x-data>
         <template x-for="(item,index) in $store.products.items" :key="index">
-      <div class="modal-container">
+      <div class="modal-container" @click.outside="open = false">
         <a href="#" @click.prevent="open=false" class="close-icon"><svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
           stroke-linejoin="round">
           <use href="img/feather-sprite.svg#x" />
