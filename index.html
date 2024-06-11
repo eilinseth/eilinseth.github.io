@@ -20,13 +20,22 @@
     <!-- My Style -->
 
     <link rel="stylesheet" href="css/style.css" />
-    
-     <!-- Alpinejs -->
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-   
-    <!-- myjs -->
+    <!-- Alpinejs -->
 
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Midtrans -->
+    <script
+      type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="	
+      SB-Mid-client-DzY6s3VADasoUBlq
+      "
+    ></script>
   </head>
   <body x-data="{open : false}">
     <!-- Navbar start -->
@@ -45,7 +54,9 @@
         <a href="#" id="search-btn"><i data-feather="search"></i></a>
         <a href="javascript:;" id="shopping-cart">
           <i data-feather="shopping-cart"></i>
-          <span x-show="$store.cart.quantity" x-text="$store.cart.quantity">10</span>
+          <span x-show="$store.cart.quantity" x-text="$store.cart.quantity"
+            >10</span
+          >
         </a>
         <a href="javascript:;" id="hamburger-menu"
           ><i data-feather="menu"></i
@@ -59,43 +70,55 @@
       </div>
 
       <!-- shopping cart start -->
-      <div class="shopping-cart" >
-        
+      <div class="shopping-cart">
         <template x-for="(item,index) in $store.cart.items" :key="index">
           <div class="cart-item">
-          <img :src="`img/product/${item.img}`" :alt="item.name" />
-          <div class="item-detail">
-            <h3 class="nama-produk" x-text="item.name">Roasted Coffee Beans</h3>
-            <h3 class="harga-produk" x-text="rupiah(item.price)">Rp.30000 </h3>&times;
-            <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
-            <span x-text="item.quantity">1</span>
-            <button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
-            <span id="total" x-text="rupiah(item.total)">Rp.30000</span>
+            <img :src="`img/product/${item.img}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 class="nama-produk" x-text="item.name">
+                Roasted Coffee Beans
+              </h3>
+              <h3 class="harga-produk" x-text="rupiah(item.price)">Rp.30000</h3>
+              &times;
+              <button id="remove" @click="$store.cart.remove(item.id)">
+                &minus;
+              </button>
+              <span x-text="item.quantity">1</span>
+              <button id="add" @click="$store.cart.add(item)">&plus;</button
+              >&equals;
+              <span id="total" x-text="rupiah(item.total)">Rp.30000</span>
+            </div>
           </div>
-        </div>
         </template>
 
-        <h5 x-show="!$store.cart.items.length">Cart is empty </h5>
-        <h5 x-show="$store.cart.items.length">Total = <span x-text="rupiah($store.cart.total)"></span> </h5>
+        <h5 x-show="!$store.cart.items.length">Cart is empty</h5>
+        <h5 x-show="$store.cart.items.length">
+          Total = <span x-text="rupiah($store.cart.total)"></span>
+        </h5>
         <div class="form-container" x-show="$store.cart.items.length">
           <!-- <h5>Customer Detail</h5> -->
           <form action="" id="form-checkout">
+            <input
+              type="hidden"
+              name="items"
+              x-model="JSON.stringify($store.cart.items)"
+            />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
             <label for="nama">
               <span>Nama : </span>
-              <input type="text" name="nama" required>
+              <input type="text" name="nama" required />
             </label>
             <label for="email">
               <span>Email : </span>
-              <input type="text" name="email" required>
+              <input type="text" name="email" required />
             </label>
             <label for="nomor">
               <span>Nomor : </span>
-              <input type="text" name="nomor" autocomplete="off" required>
+              <input type="text" name="nomor" autocomplete="off" required />
             </label>
             <button type="submit" class="formBtnCust disabled">Order</button>
           </form>
         </div>
-        
       </div>
     </nav>
 
@@ -120,7 +143,7 @@
       <h1>Tentang <span>Kami</span></h1>
       <div class="row">
         <div class="forimg">
-          <img src="/img/ttgkami.jpg" alt="" class="tentangimg" />
+          <img src="/img/ttgkami.png" alt="" class="tentangimg" />
         </div>
         <div class="content">
           <h3>Kenapa memilih kopi kami?</h3>
@@ -213,73 +236,111 @@
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
         cupiditate perferendis dolores, aliquam suscipit labore.
       </p>
-      <div class="row"  >
-        
-        <template x-for="(item,index) in items" :key='index' >
-          
-        <div class="product-item">
-          <div class="product-icons">
-            <a href="" @click.prevent="$store.cart.add(item)" >
-              <svg
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+      <div class="row">
+        <template x-for="(item,index) in items" :key="index">
+          <div class="product-item">
+            <div class="product-icons">
+              <a href="" @click.prevent="$store.cart.add(item)">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#shopping-cart" />
+                </svg>
+              </a>
+              <a
+                href="javascript:;"
+                class="detail-produk"
+                @click="open = !open;$store.products.detail(item)"
               >
-                <use href="img/feather-sprite.svg#shopping-cart" />
-              </svg>
-            </a>
-            <a href="javascript:;" class="detail-produk" @click="open = !open;$store.products.detail(item)" >
-              <svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
-                stroke-linejoin="round">
-                <use href="img/feather-sprite.svg#eye" />
-              </svg> 
-              
-            </a>
-          </div>
-          <div class="product-img">
-            <img :src="`img/product/${item.img}`" alt="" />
-          </div>
-          <div class="product-content">
-            <h3 class="product-title" x-text="item.name">Roasted Coffee Beans</h3>
-            <div class="product-star">
-              <svg width="24" height="24" fill="currentColor"stroke="currentColor"stroke-width="2"stroke-linecap="round"
-                stroke-linejoin="round">
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg width="24" height="24" fill="currentColor"stroke="currentColor"stroke-width="2"stroke-linecap="round"
-                stroke-linejoin="round">
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg width="24" height="24" fill="currentColor"stroke="currentColor"stroke-width="2"stroke-linecap="round"
-                stroke-linejoin="round">
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg width="24" height="24" fill="currentColor"stroke="currentColor"stroke-width="2"stroke-linecap="round"
-                stroke-linejoin="round">
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg width="24" height="24" fill="currentColor"stroke="currentColor"stroke-width="2"stroke-linecap="round"
-                stroke-linejoin="round">
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#eye" />
+                </svg>
+              </a>
             </div>
-            <div class="product-price">
-              <h3 x-text="rupiah(item.price)"></h3>
+            <div class="product-img">
+              <img :src="`img/product/${item.img}`" alt="" />
+            </div>
+            <div class="product-content">
+              <h3 class="product-title" x-text="item.name">
+                Roasted Coffee Beans
+              </h3>
+              <div class="product-star">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+              </div>
+              <div class="product-price">
+                <h3 x-text="rupiah(item.price)"></h3>
+              </div>
             </div>
           </div>
-         
-        </div>
-     
-       
-        
-     
-      </template>
-      
-     
+        </template>
       </div>
     </section>
     <!-- Product end -->
@@ -324,42 +385,60 @@
     <!-- Modal detail produk start -->
 
     <!-- <div x-data="products"> -->
-      <div class="modal-box" x-show="open;"  x-data>
-        <template x-for="(item,index) in $store.products.items" :key="index">
-      <div class="modal-container" @click.outside="open = false">
-        <a href="#" @click.prevent="open=false" class="close-icon"><svg width="24" height="24" fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"
-          stroke-linejoin="round">
-          <use href="img/feather-sprite.svg#x" />
-        </svg>
-      </a>
-        <div class="modal-detail" >
-          <div class="modal-img">
-            <img :src="`img/product/${item.img}`" :alt="item.name">
-          </div>
-          <div class="product-content">
-              <h3 class="product-title" x-text="item.name">Roasted Coffee Beans</h3>
-            <div class="product-star">
-              <i data-feather="star" class="starfull"></i>
-              <i data-feather="star" class="starfull"></i>
-              <i data-feather="star" class="starfull"></i>
-              <i data-feather="star" class="starfull"></i>
-              <i data-feather="star"></i>
+    <div class="modal-box" x-show="open;" x-data>
+      <template x-for="(item,index) in $store.products.items" :key="index">
+        <div class="modal-container" @click.outside="open = false">
+          <a href="#" @click.prevent="open=false" class="close-icon"
+            ><svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="img/feather-sprite.svg#x" />
+            </svg>
+          </a>
+          <div class="modal-detail">
+            <div class="modal-img">
+              <img :src="`img/product/${item.img}`" :alt="item.name" />
             </div>
-            <div class="product-price" x-text="rupiah(item.price)">
-              <h3 >IDR 30K</h3>
+            <div class="product-content">
+              <h3 class="product-title" x-text="item.name">
+                Roasted Coffee Beans
+              </h3>
+              <div class="product-star">
+                <i data-feather="star" class="starfull"></i>
+                <i data-feather="star" class="starfull"></i>
+                <i data-feather="star" class="starfull"></i>
+                <i data-feather="star" class="starfull"></i>
+                <i data-feather="star"></i>
+              </div>
+              <div class="product-price" x-text="rupiah(item.price)">
+                <h3>IDR 30K</h3>
+              </div>
+              <a
+                href="javascript:;"
+                class="modal-cart"
+                @click="$store.cart.add(item)"
+                ><i data-feather="shopping-cart"></i
+                ><span> Add to Cart</span></a
+              >
             </div>
-            <a href="javascript:;" class="modal-cart" @click="$store.cart.add(item)"><i data-feather="shopping-cart"></i><span> Add to Cart</span></a>
-          </div>
-          <div class="description" x-text="item.deskripsi">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique nemo obcaecati fuga voluptas, ab ad maxime aut iste neque qui quas cumque inventore sit pariatur maiores temporibus soluta consequuntur a?</p>
+            <div class="description" x-text="item.deskripsi">
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Similique nemo obcaecati fuga voluptas, ab ad maxime aut iste
+                neque qui quas cumque inventore sit pariatur maiores temporibus
+                soluta consequuntur a?
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </template>
-  </div>
-     
- 
-    
+      </template>
+    </div>
 
     <!-- Modal detail produk end -->
 
@@ -385,7 +464,7 @@
     <!-- Footer End -->
 
     <!-- feather icons -->
-     
+
     <script>
       feather.replace();
     </script>
@@ -393,7 +472,5 @@
     <!-- My Js -->
     <script src="js/script.js"></script>
     <script src="js/app.js"></script>
-
-
   </body>
 </html>
