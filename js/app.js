@@ -120,6 +120,34 @@ document.addEventListener("alpine:init", () => {
   });
 });
 
+//form validation
+
+const checkoutButton = document.querySelector(".formBtnCust");
+checkoutButton.disabled = true;
+
+const form = document.querySelector("#form-checkout");
+console.log(form)
+
+
+form.addEventListener('keyup', function() {
+  for (let i = 0; i < form.elements.length -1; i++) {
+      if (form.elements[i].value.length !== 0) {
+        checkoutButton.classList.remove('disabled');
+        checkoutButton.classList.add('disabled');      
+         
+      }else{
+        checkoutButton.classList.add('disabled');
+        return false;
+
+      }
+    }
+    checkoutButton.classList.remove('disabled');
+    checkoutButton.disabled=false;
+
+
+});
+
+
 function rupiah(number) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
